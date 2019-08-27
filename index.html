@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七夕情缘</title>
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<div id="container">
+    <div id="rq">
+        <div id="d1">
+            <img src="image/bj/qxa.png" alt="" width="800px" height="600px">
+        </div>
+        <div id="d2">
+            <img src="image/bj/qxb.png" alt="" width="800px" height="600px">
+            <div id="door-left">
+                <img src="image/qita/door-left.png" alt="" >
+            </div>
+            <div id="door-right">
+                <img src="image/qita/door-right.png" alt="">
+            </div>
+        </div>
+        <div id="d3">
+            <img src="image/bj/qxc.png" alt="" width="800px" height="600px">
+            <div id="girl">
+                <img src="image/girl/girl-rotate1.png" alt="" id="girl-img">
+            </div>
+        </div>
+    </div>
+    <!--小男孩-->
+    <div id="boy">
+        <img src="image/boy/boy-walk1.png" alt="" id="boy-img">
+    </div>
+
+</div>
+<input type="button" value="页面切换" onclick="qh()">
+</body>
+<script>
+    //获取页面上的节点
+    var boyImg = document.getElementById("boy-img");
+    var boy = document.getElementById("boy");
+    var rq = document.getElementById("rq");
+    var girlImg = document.getElementById("girl-img");
+    var girl = document.getElementById("girl");
+
+
+    //临时变量
+    var num = 1;
+    var num2 = 0;
+    var num3 = 0;
+
+    //声明定时器变量
+    var jsA;
+
+    //存放图片地址
+    var boyWalk = [
+        "image/boy/boy-walk1.png",
+        "image/boy/boy-walk2.png",
+        "image/boy/boy-walk3.png",
+        "image/boy/boy-walk4.png",
+    ];
+    var boyFlower = [
+        "image/boy/boy-flower1.png",
+        "image/boy/boy-flower2.png",
+        "image/boy/boy-flower3.png",
+        "image/boy/boy-flower4.png",
+    ];
+    var boyRound = [
+        "image/boy/boy-rotate1.png",
+        "image/boy/boy-rotate2.png",
+        "image/boy/boy-rotate3.png",
+        "image/boy/boy-rotate4.png",
+        "image/boy/boy-rotate5.png",
+        "image/boy/boy-rotate6.png",
+    ];
+    var girlRound = [
+        "image/girl/girl-rotate1.png",
+        "image/girl/girl-rotate2.png",
+        "image/girl/girl-rotate3.png",
+        "image/girl/girl-rotate4.png",
+        "image/girl/girl-rotate5.png",
+        "image/girl/girl-rotate6.png",
+    ];
+
+
+
+
+    //主题的切换
+    function qh() {
+        rq.style.transition = "all 10s linear";
+        rq.style.transform = "translateX(-800px)";
+    }
+
+    //小男孩走路状态切换
+    jsA = setInterval(function () {
+        boyImg.src = boyWalk[num2];
+        if(num2 === 3){
+            num2 = 0
+        }else {
+            num2 ++;
+        }
+    },200);
+    //小男孩在x轴移动
+    setTimeout(function () {
+        boy.style.transition = "all 2s linear";
+        boy.style.transform = "translateX(420px)";
+    },300);
+    //页面滚动
+    setTimeout(function () {
+        rq.style.transition = "all 5s linear";
+        rq.style.transform = "translateX(-800px)";
+    },1900);
+
+    //在花店门口停下
+    setTimeout(function () {
+        clearInterval(jsA);
+        boyImg.src = boyWalk[1];
+    },7000);
+
+    //花店开门，2s
+    setTimeout(function () {
+        boy.style.transition = "all 2s linear";
+        boy.style.transform = "translate(420px,-30px)";
+        boy.style.opacity = "0";
+    },9000);
+    //进入走路状态
+    setTimeout(function () {
+        jsA = setInterval(function () {
+            boyImg.src = boyWalk[num2];
+            if(num2 === 3){
+                num2 = 0
+            }else {
+                num2 ++;
+            }
+        },200);
+    },9000);
+
+    //进入花店
+    setTimeout(function () {
+        boy.style.transition = "all 2s linear";
+        boy.style.transform = "translate(420px,-30px)";
+        boy.style.opacity = "0";
+    },9000);
+    setTimeout(function () {
+        clearInterval(jsA);
+    },11000);
+
+    //
+    //拿花出来，实际就是改变小男孩的图片
+    //进入走路状态
+    setTimeout(function () {
+        jsA = setInterval(function () {
+            boyImg.src = boyFlower[num2];
+            if(num2 === 3){
+                num2 = 0
+            }else {
+                num2 ++;
+            }
+        },200);
+    },11500);
+    //出店
+    setTimeout(function () {
+        boy.style.transition = "all 2s linear";
+        boy.style.transform = "translate(420px,5px)";
+        boy.style.opacity = "1";
+    },11500);
+
+    //进入下一个主题
+    setTimeout(function () {
+        rq.style.transition = "all 5s linear";
+        rq.style.transform = "translateX(-1600px)";
+    },13600);
+    setTimeout(function () {
+        boy.style.transition = "all 2s linear";
+        boy.style.transform = "translate(90px,5px)";
+    },13700);
+
+    //先上桥，再直行一段路
+    setTimeout(function () {
+        boy.style.transition = "all 2s linear";
+        boy.style.transform = "translate(250px,-65px)";
+    },19000);
+    //在桥上走一段路
+    setTimeout(function () {
+        boy.style.transition = "all 2s linear";
+        boy.style.transform = "translate(350px,-65px)";
+    },21000);
+    //停下走路
+    setTimeout(function () {
+        clearInterval(jsA);
+    },23000);
+    //携手转身
+
+    setTimeout(function () {
+        jsA = setInterval(function () {
+            boyImg.src = boyRound[num3];
+            girlImg.src = girlRound[num3];
+            if(num3 === 5){
+                clearInterval(jsA)
+            }else {
+                num3 ++;
+            }
+        },200);
+    },23000);
+
+</script>
+</html>

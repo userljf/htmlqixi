@@ -1,0 +1,59 @@
+#container{
+    width: 800px;
+    height: 600px;
+    border: 1px black solid;
+    margin: auto;
+    /*margin-top: 100px;*/
+    overflow: hidden;
+    position: relative;
+}
+#rq{
+    width: 2400px;
+    overflow: hidden;
+    position: relative;
+}
+#d1,#d2,#d3{
+    width: 800px;
+    height: 600px;
+    float: left;
+    position: relative;
+}
+#boy{
+    bottom: 115px;
+    position: absolute;
+}
+#boy img{
+    width: 80px;
+    height: 150px;
+}
+#door-left{
+    height: 142px;
+    width: 51px;
+    position: absolute;
+    bottom: 170px;
+    left: 417px;
+}
+#door-left img{
+    width: 100%;
+    height: 100%;
+}
+#door-right{
+    height: 142px;
+    width: 51px;
+    position: absolute;
+    bottom: 170px;
+    left: 468px;
+}
+#door-right img{
+    width: 100%;
+    height: 100%;
+}
+#girl{
+    bottom: 180px;
+    position: absolute;
+    right: 305px;
+}
+#girl img{
+    width: 80px;
+    height: 150px;
+}
